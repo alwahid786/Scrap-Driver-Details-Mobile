@@ -132,20 +132,6 @@
   background-color: rgba(204, 165, 247, 0.1490196078);
 }
 
-.actionBtn_s {
-  padding: 7px 30px;
-  border: none;
-  border-radius: 7px;
-  color: white;
-  font-size: 15px;
-  background-color: #1d3e75;
-  text-decoration: none !important;
-}
-.actionBtn_s:hover {
-  text-decoration: none !important;
-  color: white;
-}
-
 .token_s {
   font-weight: 400;
   color: #1d3e75;

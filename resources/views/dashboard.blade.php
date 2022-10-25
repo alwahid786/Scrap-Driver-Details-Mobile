@@ -12,7 +12,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container-md container-fluid">
     <div class="row">
         <div class="col-12 mt-3">
             <h3>All Listings</h3>
@@ -35,7 +35,7 @@
                         <td>27/Dec, 2022</td>
                         <td>Willington park, 4 Avenue</td>
                         <td class="text-center">
-                            <a href="{{url('/listing/detail')}}" class="actionBtn_s">View</a>
+                            <a href="{{url('/listing/detail')}}" style="background-color: #1d3e75; border-radius: 8px; color:white; text-decoration:none;" class=" px-3 py-1 py-sm-2 px-sm-4">View</a>
                         </td>
                     </tr>
                 </tbody>
@@ -48,5 +48,11 @@
     $(document).ready(function() {
         $('#example').DataTable();
     });
+    width = $(window).width();
+    if (width < 600) {
+        $('#example').addClass('table-responsive');
+    } else {
+        $('#example').removeClass('table-responsive');
+    }
 </script>
 @endsection
