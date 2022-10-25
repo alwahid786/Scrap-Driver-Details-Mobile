@@ -105,12 +105,14 @@
     <div class="row pt-4">
         <div class="col-sm-9 col-12">
             <h3 class="companyname_s">
-                Custom Apparell, LLC 313, Meetings St. DANDRIDGE
+                {{$data->supplier_name}},
+                {{$data->supplier_address}},
+                {{$data->supplier_city}}.
             </h3>
         </div>
         <div class="col-sm-3 col-12 text-sm-right">
             <h4 class="token_s">
-                #0000031
+                {{$data->slip_number}}
             </h4>
         </div>
     </div>
@@ -121,7 +123,8 @@
                     <strong class="sizeText_s">Size:</strong>
                 </div>
                 <div class="secondDiv_s">
-                    <span class="sizeText_s">30 Yard Container</span>
+                    <span class="sizeText_s"> {{$data->container_type}}
+                    </span>
                 </div>
             </div>
             <div class="d-flex mt-3">
@@ -129,7 +132,8 @@
                     <strong class="sizeText_s">Notes:</strong>
                 </div>
                 <div class="secondDiv_s">
-                    <span class="sizeText_s">30 Yard Container 30 Yard Container 30 Yard Container</span>
+                    <span class="sizeText_s"> {{$data->notes}}
+                    </span>
                 </div>
             </div>
             <button class="startBtn_s mt-4 btn" data-toggle="modal" data-target="#exampleModal">
@@ -162,12 +166,17 @@
                 </div>
             </div>
             <div class="d-flex contentDiv_s">
+                @foreach($data->container_out_row as $removed)
                 <div class="w-50 div1_s text-center py-2">
-                    Container Num
+                    {{$removed}}
                 </div>
+                @endforeach
+                @foreach($data->container_in_row as $placed)
                 <div class="w-50 text-center py-2">
-                    Container Num
+                    {{$placed}}
                 </div>
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -182,9 +191,9 @@
     </div>
     <div class="row">
         <div class="notesDiv_s mx-auto mt-5">
-            <textarea name="" id="" class="textarea_s" rows="5" placeholder="Write Notes Here..."></textarea>
+            <textarea name="" id="" class="textarea_s textarea_d" rows="5" placeholder="{{$data->notes}}"></textarea>
             <div class="w-50 mx-auto my-2">
-                <button class="slipbtn_s" data-toggle="modal" data-target="#saveNotesModal">
+                <button class="slipbtn_s slipbtn_d" data-toggle="modal" data-target="#saveNotesModal">
                     SAVE NOTES
                 </button>
             </div>
@@ -194,7 +203,7 @@
         <div class="col-12 mt-5">
             <h2 class="binDetail_s">Bin Details:</h2>
             <div class="binDetailDiv_s">
-                <span>30 Yard Container</span>
+                <span>{{$data->bin_types}}</span>
             </div>
         </div>
     </div>
@@ -205,15 +214,19 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modalContent_s">
             <div class="h3">
-                Confirm Start Slip #0000036 ?
+                Confirm Start Slip {{$data->slip_number}} ?
             </div>
             <div class="d-flex mt-3">
                 <button class="modalNoBtn_s" class="close" data-dismiss="modal" aria-label="Close">
                     No
                 </button>
-                <button class="modalYesBtn_s">
-                    Yes
-                </button>
+                <form action="{{route('startSlip')}}" method="get" enctype="multipart/form-data" style="width:50%">
+                    @csrf
+                    <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
+                    <button class="modalYesBtn_s w-100" type="submit">
+                        Yes
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -265,9 +278,14 @@
                 <button class="modalNoBtn_s" class="close" data-dismiss="modal" aria-label="Close">
                     No
                 </button>
-                <button class="modalYesBtn_s">
-                    Yes
-                </button>
+                <form action="{{route('completeSlip')}}" method="get" enctype="multipart/form-data" style="width:50%">
+                    @csrf
+                    <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
+                    <input type="hidden" class="driverName_d" name="driver_name" value="{{$name}}">
+                    <button class="modalYesBtn_s w-100" type="submit">
+                        Yes
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -283,11 +301,25 @@
                 <button class="modalNoBtn_s" class="close" data-dismiss="modal" aria-label="Close">
                     No
                 </button>
-                <button class="modalYesBtn_s">
-                    Yes
-                </button>
+                <form action="{{route('saveNotes')}}" method="get" enctype="multipart/form-data" style="width:50%">
+                    @csrf
+                    <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
+                    <input type="hidden" class="notes_d" name="notes">
+                    <button class="modalYesBtn_s w-100" type="submit">
+                        Yes
+                    </button>
+                </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $('.slipbtn_d').click(function() {
+        let text = $('.textarea_d').val();
+        $('.notes_d').val(text);
+    })
+
+    let driverName = localStorage.getItem('driverName');
+    $(".driverName_d").val(driverName);
+</script>
 @endsection

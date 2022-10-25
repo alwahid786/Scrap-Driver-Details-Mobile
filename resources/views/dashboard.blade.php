@@ -24,20 +24,33 @@
                         <th>ID</th>
                         <th>Size</th>
                         <th>Date</th>
-                        <th>Location</th>
+                        <th>Supplier Name</th>
+                        <th>Supplier Address</th>
+                        <th>Supplier City</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @if (isset($data) && !empty($data))
+                    @foreach ($data as $slip)
                     <tr>
-                        <td>0225</td>
-                        <td>43 yard container</td>
-                        <td>27/Dec, 2022</td>
-                        <td>Willington park, 4 Avenue</td>
+                        <td>{{$slip->slip_number}}</td>
+                        <td>{{$slip->container_type}}</td>
+                        <td>{{$slip->slip_date}}</td>
+                        <td>{{$slip->supplier_name}}</td>
+                        <td>{{$slip->supplier_address}}</td>
+                        <td>{{$slip->supplier_city}}</td>
                         <td class="text-center">
-                            <a href="{{url('/listing/detail')}}" style="background-color: #1d3e75; border-radius: 8px; color:white; text-decoration:none;" class=" px-3 py-1 py-sm-2 px-sm-4">View</a>
+                            <?php $id = '/' . $slip->slip_number ?>
+                            <a href="javascript:void(0)" style="background-color: #1d3e75; border-radius: 8px; color:white; text-decoration:none;" class=" px-3 py-1 py-sm-2 px-sm-4 viewData_d">View</a>
                         </td>
+                        <form class="listDetailForm_d" action="{{route('listDetail')}}" method="get" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="slipnum" value="{{$slip->slip_number}}">
+                        </form>
                     </tr>
+                    @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -54,5 +67,9 @@
     } else {
         $('#example').removeClass('table-responsive');
     }
+
+    $(".viewData_d").click(function() {
+        $('.listDetailForm_d').submit();
+    });
 </script>
 @endsection
