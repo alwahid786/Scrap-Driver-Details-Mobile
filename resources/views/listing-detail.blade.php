@@ -1,5 +1,94 @@
 @extends('layouts.header')
 @section('content')
+<style>
+    .companyname_s {
+        text-decoration: underline #1d3e75;
+        color: #1d3e75;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .companyname_s {
+            text-decoration: underline #1d3e75;
+            color: #1d3e75;
+            font-size: 23px;
+        }
+
+        .sizeDiv_s {
+            width: 85%;
+        }
+
+        .token_s {
+            font-size: 15px;
+        }
+
+        .binBtnsDiv_s {
+            width: 85%;
+        }
+
+        .sizeDiv2_s {
+            width: 85%;
+        }
+
+        .notesDiv_s {
+            width: 85%;
+        }
+
+
+    }
+
+    @media only screen and (max-width: 500px) {
+        .sizeText_s {
+            font-size: 20px !important;
+        }
+
+        .secondDiv_s {
+            font-size: 20px !important;
+            width: 70% !important;
+        }
+
+        .firstDiv_s {
+            width: 30% !important;
+        }
+
+        .sizeDiv_s {
+            padding: 20px;
+        }
+
+
+    }
+
+    @media only screen and (max-width: 400px) {
+        .companyname_s {
+            text-decoration: underline #1d3e75;
+            color: #1d3e75;
+            font-size: 20px;
+        }
+
+        .sizeDiv_s {
+            width: 95%;
+        }
+
+        .binBtnsDiv_s {
+            width: 95%;
+        }
+
+        .sizeDiv2_s {
+            width: 95%;
+        }
+
+        .notesDiv_s {
+            width: 95%;
+        }
+
+        .width_s {
+            width: 70% !important;
+        }
+    }
+
+    .width_s {
+        width: 50%;
+    }
+</style>
 <!-- Navbar section  -->
 <div class="container-fluid">
     <div class="row">
@@ -12,14 +101,14 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container-md container-fluid">
     <div class="row pt-4">
-        <div class="col-9">
+        <div class="col-sm-9 col-12">
             <h3 class="companyname_s">
                 Custom Apparell, LLC 313, Meetings St. DANDRIDGE
             </h3>
         </div>
-        <div class="col-3 text-right">
+        <div class="col-sm-3 col-12 text-sm-right">
             <h4 class="token_s">
                 #0000031
             </h4>
@@ -84,7 +173,7 @@
     </div>
     <div class="row">
         <div class="col-12 ">
-            <div class="w-50 mx-auto">
+            <div class=" mx-auto width_s">
                 <button class="slipbtn_s" data-toggle="modal" data-target="#slipCompleteModal">
                     SLIP COMPLETE
                 </button>
