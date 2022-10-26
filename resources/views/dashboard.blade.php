@@ -72,4 +72,12 @@
         $('.listDetailForm_d').submit();
     });
 </script>
+<script>
+    $(document).ready(function() {
+        $(".loader_s").addClass('d-none');
+    });
+    $(".viewData_d").click(function() {
+        $(".loader_s").removeClass('d-none');
+    });
+</script>
 @endsection
