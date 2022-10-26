@@ -16,9 +16,10 @@
 </head>
 
 <body>
-    <div class="loader_s d-none" style="position: absolute;
+    <div class="loader_s d-none" style="position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     opacity: 46%;
     z-index: 1;
