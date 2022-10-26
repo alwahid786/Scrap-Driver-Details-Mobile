@@ -16,7 +16,16 @@
 </head>
 
 <body>
-    <img style="position: fixed; top:0; left:0; z-index: 1;" src="{{asset('assets/images/loader-round.gif')}}" alt="">
+    <div style="position:absolute;top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #b5b5b5;"></div>
+    <img style="position: fixed;
+    left: calc((50vw - 50%) * -1);
+    top: calc((50vh - 50%) * -1);
+    transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+    z-index: 1;" src="{{asset('assets/images/loader-round.gif')}}" alt="">
     @yield('content')
 
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
