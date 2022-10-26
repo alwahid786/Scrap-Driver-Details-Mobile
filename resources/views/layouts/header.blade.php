@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <img src="{{asset('assets/images/loader.gif')}}" alt="">
     @yield('content')
 
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
