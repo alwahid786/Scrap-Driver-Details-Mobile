@@ -19,6 +19,8 @@ Route::get('/slip/detail', [AuthController::class, 'listDetail'])->name('listDet
 Route::get('/slip/start', [AuthController::class, 'startSlip'])->name('startSlip');
 Route::get('/slip/complete', [AuthController::class, 'completeSlip'])->name('completeSlip');
 Route::get('/notes/change', [AuthController::class, 'saveNotes'])->name('saveNotes');
+Route::get('/bin/remove', [AuthController::class, 'binRemove'])->name('binRemove');
+Route::get('/bin/place', [AuthController::class, 'binPlace'])->name('binPlace');
 
 Route::get('/', function () {
     return view('login');

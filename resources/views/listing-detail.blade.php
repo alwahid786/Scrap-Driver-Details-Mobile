@@ -140,8 +140,8 @@
                 START
             </button>
             <div class="mt-5">
-                <input type="text" class="inputContNum_s text-center" placeholder="Container Number">
-                <button class="startBtn_s mt-4" data-toggle="modal" data-target="#exampleModal">
+                <input type="text" class="inputContNum_s inputContNum_d text-center" placeholder="Container Number">
+                <button class="startBtn_s mt-4" data-toggle="modal" data-target="#exampleModal" disabled>
                     SCAN BARCODE
                 </button>
             </div>
@@ -242,9 +242,20 @@
                 <button class="modalNoBtn_s" class="close" data-dismiss="modal" aria-label="Close">
                     No
                 </button>
-                <button class="modalYesBtn_s">
-                    Yes
-                </button>
+                <form action="{{route('binRemove')}}" method="get" enctype="multipart/form-data" style="width:50%">
+                    @csrf
+                    <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
+                    <input type="hidden" class="container_d" name="new_container" value="">
+                    <input type="hidden" name="longitude" value="-87.6298">
+                    {{--<!-- <input type="hidden" name="longitude" value="{{$location->longitude}}"> -->--}}
+                    <input type="hidden" name="latitude" value="41.8781">
+                    {{--<!-- <input type="hidden" name="latitude" value="{{$location->latitude}}"> -->--}}
+                    <input type="hidden" name="driver_code" value="{{$code}}">
+                    <input type="hidden" name="yardcode" value="{{$data->slip_number}}">
+                    <button class="modalYesBtn_s w-100" type="submit">
+                        Yes
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -260,9 +271,20 @@
                 <button class="modalNoBtn_s" class="close" data-dismiss="modal" aria-label="Close">
                     No
                 </button>
-                <button class="modalYesBtn_s">
-                    Yes
-                </button>
+                <form action="{{route('binPlace')}}" method="get" enctype="multipart/form-data" style="width:50%">
+                    @csrf
+                    <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
+                    <input type="hidden" class="container_d" name="new_container" value="">
+                    <input type="hidden" name="longitude" value="-87.6298">
+                    {{--<!-- <input type="hidden" name="longitude" value="{{$location->longitude}}"> -->--}}
+                    <input type="hidden" name="latitude" value="41.8781">
+                    {{--<!-- <input type="hidden" name="latitude" value="{{$location->latitude}}"> -->--}}
+                    <input type="hidden" name="driver_code" value="{{$code}}">
+                    <input type="hidden" name="yardcode" value="{{$data->slip_number}}">
+                    <button class="modalYesBtn_s w-100" type="submit">
+                        Yes
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -317,6 +339,10 @@
     $('.slipbtn_d').click(function() {
         let text = $('.textarea_d').val();
         $('.notes_d').val(text);
+    })
+
+    $(".inputContNum_d").on('keyup', function() {
+        $(".container_d").val($(this).val());
     })
 
     let driverName = localStorage.getItem('driverName');

@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-
-
+use Stevebauman\Location\Facades\Location;
 
 
 class AuthController extends Controller
@@ -52,7 +51,10 @@ class AuthController extends Controller
         $data = $response->body();
         $dataresponse = json_decode($data);
         $name = Session::get('driverName');
-        return view('listing-detail', ['data' => $dataresponse, 'name' => $name]);
+        $code = Session::get('driverCode');
+        $ip = $request->ip();
+        $currentUserInfo = Location::get($ip);
+        return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code]);
     }
 
     public function startSlip(Request $request)
@@ -61,7 +63,11 @@ class AuthController extends Controller
         $data = $response->body();
         $dataresponse = json_decode($data);
         $name = Session::get('driverName');
-        return view('listing-detail', ['data' => $dataresponse, 'name' => $name]);
+        $ip = $request->ip();
+        $currentUserInfo = Location::get($ip);
+        $code = Session::get('driverCode');
+
+        return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code]);
     }
 
     // Complete Slip 
@@ -87,5 +93,21 @@ class AuthController extends Controller
         $dataresponse = json_decode($data);
         return redirect()->back();
         // return view('listing-detail', ['data' => $dataresponse]);
+    }
+
+    public function binRemove(Request $request)
+    {
+        $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/add_container_out?slipnum=' . $request->slipnum . '&new_container=' . $request->new_container . '&longitude=' . $request->longitude . '&latitude=' . $request->latitude . '&driver_code=' . $request->driver_code);
+        $data = $response->body();
+        $dataresponse = json_decode($data);
+        return redirect()->back();
+    }
+
+    public function binPlace(Request $request)
+    {
+        $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/add_container_in?slipnum=' . $request->slipnum . '&new_container=' . $request->new_container . '&longitude=' . $request->longitude . '&latitude=' . $request->latitude . '&driver_code=' . $request->driver_code . '&yardcode=' . $request->yardcode);
+        $data = $response->body();
+        $dataresponse = json_decode($data);
+        return redirect()->back();
     }
 }
