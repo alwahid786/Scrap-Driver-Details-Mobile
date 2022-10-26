@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div style="position: absolute;
+    <div class="loader_s d-none" style="position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -24,7 +24,7 @@
     z-index: 1;
     height: 100%;
     background-color: #000000;"></div>
-    <img style="position: fixed;
+    <img class="loader_s d-none" style="position: fixed;
     left: calc((50vw - 50%) * -1);
     top: calc((50vh - 50%) * -1);
     transform: translate(calc(50vw - 50%), calc(50vh - 50%));

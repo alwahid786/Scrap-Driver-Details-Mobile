@@ -44,7 +44,7 @@
                         </label><br>
                         <input type="text" name="driver_name" class="codeInput_s" placeholder="Enter Driver Name Here...">
                         <input type="hidden" name="method" value="login">
-                        <button class="signInBtn_s" type="submit">
+                        <button class="signInBtn_s signInBtn_d" type="submit">
                             SIGN IN
                         </button>
                     </form>
@@ -53,4 +53,12 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $(".loader_s").addClass('d-none');
+    });
+    $(".signInBtn_d").click(function() {
+        $(".loader_s").removeClass('d-none');
+    });
+</script>
 @endsection
