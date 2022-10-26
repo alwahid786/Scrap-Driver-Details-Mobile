@@ -15,12 +15,12 @@
     <title>Scrap-It</title>
 </head>
 
-<body>
-    <div style="position:absolute;top: 0;
+<body style="background-color: #b5b5b5;">
+    <!-- <div style="position:absolute;top: 0;
    left: 0;
    width: 100%;
    height: 100%;
-   background-color: #b5b5b5;"></div>
+   background-color: #b5b5b5;"></div> -->
     <img style="position: fixed;
     left: calc((50vw - 50%) * -1);
     top: calc((50vh - 50%) * -1);
