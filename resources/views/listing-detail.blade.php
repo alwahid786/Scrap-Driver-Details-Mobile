@@ -353,7 +353,13 @@
         $(".loader_s").addClass('d-none');
     });
     $(".loader").click(function() {
+        $('#exampleModal').modal('hide');
+        $('#binRemoveModal').modal('hide');
+        $('#binPlaceModal').modal('hide');
+        $('#slipCompleteModal').modal('hide');
+        $('#saveNotesModal').modal('hide');
         $(".loader_s").removeClass('d-none');
+
     });
 </script>
 @endsection
