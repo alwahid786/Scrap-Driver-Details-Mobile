@@ -223,7 +223,7 @@
                 <form action="{{route('startSlip')}}" method="get" enctype="multipart/form-data" style="width:50%">
                     @csrf
                     <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
-                    <button class="modalYesBtn_s w-100" type="submit">
+                    <button class="modalYesBtn_s w-100 loader" type="submit">
                         Yes
                     </button>
                 </form>
@@ -252,7 +252,7 @@
                     {{--<!-- <input type="hidden" name="latitude" value="{{$location->latitude}}"> -->--}}
                     <input type="hidden" name="driver_code" value="{{$code}}">
                     <input type="hidden" name="yardcode" value="{{$data->slip_number}}">
-                    <button class="modalYesBtn_s w-100" type="submit">
+                    <button class="modalYesBtn_s w-100 loader" type="submit">
                         Yes
                     </button>
                 </form>
@@ -281,7 +281,7 @@
                     {{--<!-- <input type="hidden" name="latitude" value="{{$location->latitude}}"> -->--}}
                     <input type="hidden" name="driver_code" value="{{$code}}">
                     <input type="hidden" name="yardcode" value="{{$data->slip_number}}">
-                    <button class="modalYesBtn_s w-100" type="submit">
+                    <button class="modalYesBtn_s w-100 loader" type="submit">
                         Yes
                     </button>
                 </form>
@@ -304,7 +304,7 @@
                     @csrf
                     <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
                     <input type="hidden" class="driverName_d" name="driver_name" value="{{$name}}">
-                    <button class="modalYesBtn_s w-100" type="submit">
+                    <button class="modalYesBtn_s w-100 loader" type="submit">
                         Yes
                     </button>
                 </form>
@@ -327,7 +327,7 @@
                     @csrf
                     <input type="hidden" name="slipnum" value="{{$data->slip_number}}">
                     <input type="hidden" class="notes_d" name="notes">
-                    <button class="modalYesBtn_s w-100" type="submit">
+                    <button class="modalYesBtn_s w-100 loader" type="submit">
                         Yes
                     </button>
                 </form>
@@ -347,5 +347,13 @@
 
     let driverName = localStorage.getItem('driverName');
     $(".driverName_d").val(driverName);
+</script>
+<script>
+    $(document).ready(function() {
+        $(".loader_s").addClass('d-none');
+    });
+    $(".loader").click(function() {
+        $(".loader_s").removeClass('d-none');
+    });
 </script>
 @endsection
