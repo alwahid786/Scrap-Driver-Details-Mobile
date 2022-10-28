@@ -37,7 +37,6 @@ class AuthController extends Controller
             $slipresponse = explode('{"error":"Valid Login"}', $slipresponse->body())[0];
             $slipresponse = json_decode($slipresponse);
             $slipresponse = $slipresponse->sliprow;
-            notify()->success('Laravel Notify is awesome!');
 
             return view('dashboard', ['data' => $slipresponse]);
         } else {
@@ -69,7 +68,7 @@ class AuthController extends Controller
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
         $code = Session::get('driverCode');
-
+        notify()->success('Slip Started Successfully!');
         return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code]);
     }
 
@@ -86,6 +85,7 @@ class AuthController extends Controller
         $slipresponse = explode('{"error":"Valid Login"}', $slipresponse->body())[0];
         $slipresponse = json_decode($slipresponse);
         $slipresponse = $slipresponse->sliprow;
+        notify()->success('Slip Completed Successfully!');
         return view('dashboard', ['data' => $slipresponse]);
     }
 
@@ -94,6 +94,8 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/change_notes?slipnum=' . $request->slipnum . '&notes=' . $request->notes);
         $data = $response->body();
         $dataresponse = json_decode($data);
+        notify()->success('Notes updated Successfully!');
+
         return redirect()->back();
         // return view('listing-detail', ['data' => $dataresponse]);
     }
@@ -103,6 +105,8 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/add_container_out?slipnum=' . $request->slipnum . '&new_container=' . $request->new_container . '&longitude=' . $request->longitude . '&latitude=' . $request->latitude . '&driver_code=' . $request->driver_code);
         $data = $response->body();
         $dataresponse = json_decode($data);
+        notify()->success('Bin Removed Successfully!');
+
         return redirect()->back();
     }
 
@@ -111,6 +115,8 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/add_container_in?slipnum=' . $request->slipnum . '&new_container=' . $request->new_container . '&longitude=' . $request->longitude . '&latitude=' . $request->latitude . '&driver_code=' . $request->driver_code . '&yardcode=' . $request->yardcode);
         $data = $response->body();
         $dataresponse = json_decode($data);
+        notify()->success('Bin Placed Successfully!');
+
         return redirect()->back();
     }
 }
