@@ -54,7 +54,8 @@ class AuthController extends Controller
         $code = Session::get('driverCode');
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
-        return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code, 'message' => "added succesfully"]);
+        toastr()->success('Data has been saved successfully!');
+        return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code]);
     }
 
     public function startSlip(Request $request)
