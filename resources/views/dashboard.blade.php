@@ -1,6 +1,5 @@
 @extends('layouts.header')
 @section('content')
-<x:notify-messages />
 
 <!-- Navbar section  -->
 <div class="container-fluid">
@@ -15,6 +14,8 @@
     </div>
 </div>
 <div class="container-md container-fluid">
+    <x:notify-messages />
+
     <div class="row">
         <div class="col-12 mt-3">
             <h3>All Listings</h3>
