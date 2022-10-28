@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    <x:notify-messages />
     <div class="loader_s d-none" style="position: fixed;
     top: 0;
     left: 0;

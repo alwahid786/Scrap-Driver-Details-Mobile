@@ -1,5 +1,7 @@
 @extends('layouts.header')
 @section('content')
+<x:notify-messages />
+
 <!-- Navbar section  -->
 <div class="container-fluid">
     <div class="row">
