@@ -56,7 +56,7 @@ class DemoCron extends Command
         // Update User Location API Call 
         $ip = \Request::ip();
         $currentUserInfo = Location::get($ip);
+        return $currentUserInfo;
         $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $code . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
-        return true;
     }
 }
