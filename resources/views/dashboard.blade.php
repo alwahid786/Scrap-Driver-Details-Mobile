@@ -24,12 +24,12 @@
         transform: translateX(0%) translateY(-50%);
     }
 
-    .goBackBtn_s{
+    .goBackBtn_s {
         background-color: white;
         padding: 6px 10px;
         color: #1d3e75;
         font-weight: 600;
-        
+        border-radius: 15px;
     }
 </style>
 
@@ -42,7 +42,9 @@
                     ScrapIt Dispatch
                 </div>
                 <div class="goBackDiv_s">
-                    <button class="goBackBtn_s">Go Back</button>
+                    <button class="goBackBtn_s">Go Back
+                        <i class="fa-solid fa-chevrons-left ml-2" style="color: #1D3E75; font-weight: 600;"></i>
+                    </button>
                 </div>
             </div>
         </div>
