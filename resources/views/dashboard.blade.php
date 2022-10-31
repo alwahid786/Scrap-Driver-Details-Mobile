@@ -43,7 +43,7 @@
                 </div>
                 <div class="goBackDiv_s">
                     <button class="goBackBtn_s">Go Back
-                        <i class="fa-solid fa-chevrons-left ml-2" style="color: #1D3E75; font-weight: 600;"></i>
+                        <i class="fa-solid fa-angles-left ml-2" style="color: #1D3E75; font-weight: 600;"></i>
                     </button>
                 </div>
             </div>
