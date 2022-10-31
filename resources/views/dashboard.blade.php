@@ -3,6 +3,7 @@
 <style>
     #toast-container>div {
         opacity: 1;
+        background-color: #1D3E75;
     }
 </style>
 
