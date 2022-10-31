@@ -5,6 +5,17 @@
         opacity: 1;
         background-color: #1D3E75;
     }
+
+    .toast-progress {
+        background-color: white;
+        bottom: 0;
+        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+        filter: alpha(opacity=40);
+        height: 4px;
+        left: 0;
+        opacity: .7;
+        position: absolute;
+    }
 </style>
 
 <!-- Navbar section  -->
