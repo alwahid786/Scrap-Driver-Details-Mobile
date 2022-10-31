@@ -23,14 +23,9 @@
     <div class="row">
         <div class="col-12 px-0">
             <div class="navbar_s text-center">
-                <div class="d-flex">
-                    <div class="w-25">
-                        Go Back
-                    </div>
-                    <span class="navText_s w-75">
-                        ScrapIt Dispatch
-                    </span>
-                </div>
+                <span class="navText_s ">
+                    ScrapIt Dispatch
+                </span>
             </div>
         </div>
     </div>
