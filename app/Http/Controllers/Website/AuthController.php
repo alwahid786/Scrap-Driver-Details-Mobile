@@ -39,6 +39,7 @@ class AuthController extends Controller
             $slipresponse = $slipresponse->sliprow;
 
             // Update User Location API Call 
+            $ip = $request->ip();
             $currentUserInfo = Location::get($ip);
             $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $request->username . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
             dd($locationApi);
