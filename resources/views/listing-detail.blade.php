@@ -88,15 +88,35 @@
     .width_s {
         width: 50%;
     }
+
+    .goBackDiv_s {
+        position: absolute;
+        top: 50%;
+        left: 4%;
+        transform: translateX(0%) translateY(-50%);
+    }
+
+    .goBackBtn_s {
+        background-color: white;
+        padding: 6px 10px;
+        color: #1d3e75;
+        font-weight: 600;
+        border-radius: 15px;
+    }
 </style>
 <!-- Navbar section - START -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 px-0">
-            <div class="navbar_s text-center">
-                <span class="navText_s ">
+            <div class="navbar_s">
+                <div class="navText_s text-center">
                     ScrapIt Dispatch
-                </span>
+                </div>
+                <div class="goBackDiv_s d-sm-block d-none">
+                    <button class="goBackBtn_s">Go Back
+                        <i class="fa-solid fa-angles-left ml-2" style="color: #1D3E75; font-weight: 600;"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
