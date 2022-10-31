@@ -37,7 +37,7 @@ class AuthController extends Controller
             $slipresponse = explode('{"error":"Valid Login"}', $slipresponse->body())[0];
             $slipresponse = json_decode($slipresponse);
             $slipresponse = $slipresponse->sliprow;
-
+            toastr()->info('Welcome To Scrapit Dispatch!');
             return view('dashboard', ['data' => $slipresponse]);
         } else {
             Session::flash('loginError', $loginResponse['message']);
