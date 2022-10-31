@@ -22,8 +22,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 px-0">
-            <div class="navbar_s text-center">
-                <span class="navText_s ">
+            <div class="navbar_s">
+                <h1 class="text-left"><button>Hi</button></h1>
+                <span class="navText_s text-center">
                     ScrapIt Dispatch
                 </span>
             </div>
