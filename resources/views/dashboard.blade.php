@@ -57,7 +57,7 @@
             </table>
             @else
             <div class="text-center">
-                <h2 class="text-danger">No Slips Available</h2>
+                <h2 class="text-danger"><strong>No Slips Available</strong></h2>
             </div>
             @endif
         </div>
