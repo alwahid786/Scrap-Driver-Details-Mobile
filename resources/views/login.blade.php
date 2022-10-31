@@ -19,7 +19,7 @@
                             </button>
                         </div>
                         @enderror
-                        @error('driver_name')
+                        @error('driver_name')    
                         <div class="alert alert-danger alert-dismissible fade show login-email-field" role="alert">
                             {{ $message }}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

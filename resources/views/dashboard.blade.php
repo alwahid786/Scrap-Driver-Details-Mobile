@@ -18,9 +18,10 @@
 
     <div class="row">
         <div class="col-12 mt-3">
-            <h3>All Listings</h3>
+            <h3>All Slips</h3>
         </div>
         <div class="col-12 mt-3 py-3">
+            @if (isset($data) && !empty($data))
             <table id="example" class="table table-hover" style="width:100%">
                 <thead class="tHead_s">
                     <tr>
@@ -34,7 +35,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (isset($data) && !empty($data))
                     @foreach ($data as $slip)
                     <tr>
                         <td>{{$slip->slip_number}}</td>
@@ -53,9 +53,13 @@
                         </form>
                     </tr>
                     @endforeach
-                    @endif
                 </tbody>
             </table>
+            @else
+            <div class="text-center">
+                <h2>No SLips Available</h2>
+            </div>
+            @endif
         </div>
     </div>
 </div>

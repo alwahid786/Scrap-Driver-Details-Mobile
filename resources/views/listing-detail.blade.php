@@ -89,7 +89,7 @@
         width: 50%;
     }
 </style>
-<!-- Navbar section  -->
+<!-- Navbar section - START -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 px-0">
@@ -101,6 +101,7 @@
         </div>
     </div>
 </div>
+<!-- Navbar section - END -->
 <div class="container-md container-fluid">
     <div class="row pt-4">
         <div class="col-sm-9 col-12">
@@ -166,6 +167,7 @@
                 </div>
             </div>
             <div class="d-flex contentDiv_s">
+                <!-- Loop for Removal of data -->
                 @foreach($data->container_out_row as $removed)
                 <div class="w-50 div1_s text-center py-2">
                     {{$removed}}
@@ -385,6 +387,7 @@
     $(document).ready(function() {
         $(".loader_s").addClass('d-none');
     });
+    // Loader customization - START
     $(".loader").click(function() {
         $('#exampleModal').modal('hide');
         $('#binRemoveModal').modal('hide');
