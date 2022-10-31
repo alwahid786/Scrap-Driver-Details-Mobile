@@ -112,7 +112,7 @@
                 <div class="navText_s text-center">
                     ScrapIt Dispatch
                 </div>
-                <div class="goBackDiv_s ">
+                <div class="goBackDiv_s d-sm-block d-none">
                     <button class="goBackBtn_s">Go Back
                         <i class="fa-solid fa-angles-left ml-2" style="color: #1D3E75; font-weight: 600;"></i>
                     </button>
