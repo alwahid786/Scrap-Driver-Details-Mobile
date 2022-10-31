@@ -1,5 +1,10 @@
 @extends('layouts.header')
 @section('content')
+<style>
+    #toast-container>div {
+        opacity: 1;
+    }
+</style>
 
 <!-- Navbar section  -->
 <div class="container-fluid">
