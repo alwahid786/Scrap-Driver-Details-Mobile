@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="col-12 mt-3">
-            <h3>All Slips</h3>
+            <h3 style="color: #1D3E75; font-weight: 600;">All Slips</h3>
         </div>
         <div class="col-12 mt-3 py-3">
             @if (isset($data) && !empty($data))
@@ -57,7 +57,7 @@
             </table>
             @else
             <div class="text-center">
-                <h2 class="text-danger"><strong style="color: #1D3E75">No Slips Available</strong></h2>
+                <h2 class="text-danger"><strong>No Slips Available</strong></h2>
             </div>
             @endif
         </div>
