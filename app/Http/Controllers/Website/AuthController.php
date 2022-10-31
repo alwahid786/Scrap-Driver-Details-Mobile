@@ -37,6 +37,11 @@ class AuthController extends Controller
             $slipresponse = explode('{"error":"Valid Login"}', $slipresponse->body())[0];
             $slipresponse = json_decode($slipresponse);
             $slipresponse = $slipresponse->sliprow;
+
+            // Update User Location API Call 
+            $currentUserInfo = Location::get($ip);
+            $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $request->username . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
+            dd($locationApi);
             toastr()->info('Welcome To Scrapit Dispatch!');
             return view('dashboard', ['data' => $slipresponse]);
         } else {
