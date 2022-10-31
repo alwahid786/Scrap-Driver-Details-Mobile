@@ -16,6 +16,10 @@
         opacity: .7;
         position: absolute;
     }
+
+    .goBackDiv_s {
+        position: absolute;
+    }
 </style>
 
 <!-- Navbar section  -->
@@ -25,6 +29,9 @@
             <div class="navbar_s">
                 <div class="navText_s text-center">
                     ScrapIt Dispatch
+                </div>
+                <div class="goBackDiv_s">
+                    <button class="goBackBtn_s">Go Back</button>
                 </div>
             </div>
         </div>
