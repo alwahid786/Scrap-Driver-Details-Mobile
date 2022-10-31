@@ -19,6 +19,17 @@
 
     .goBackDiv_s {
         position: absolute;
+        top: 50%;
+        left: 4%;
+        transform: translateX(0%) translateY(-50%);
+    }
+
+    .goBackBtn_s{
+        background-color: white;
+        padding: 6px 10px;
+        color: #1d3e75;
+        font-weight: 600;
+        
     }
 </style>
 
