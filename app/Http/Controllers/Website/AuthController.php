@@ -165,7 +165,7 @@ class AuthController extends Controller
     public function slips(Request $request)
     {
         $code = Session::get('driverCode');
-        $slipresponse = Http::get('https://morristown.scrapitsoftware.com:4443/sr/get_slip_array?username=' . $request->username);
+        $slipresponse = Http::get('https://morristown.scrapitsoftware.com:4443/sr/get_slip_array?username=' . $request->usernamecode);
         $newconvertor = $slipresponse->body();
         $newslipResponse = json_decode($newconvertor, true);
         $slipresponse = explode('{"error":"Valid Login"}', $slipresponse->body())[0];
@@ -176,7 +176,7 @@ class AuthController extends Controller
         // Update User Location API Call 
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
-        $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $request->username . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
+        $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $code . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
         return view('dashboard', ['data' => $slipresponse]);
     }
 }
