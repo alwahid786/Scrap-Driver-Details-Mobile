@@ -165,12 +165,12 @@ class AuthController extends Controller
     public function slips(Request $request)
     {
         $code = Session::get('driverCode');
-        dd($code);
-        $slipresponse = Http::get('https://morristown.scrapitsoftware.com:4443/sr/get_slip_array?username=' . $request->usernamecode);
+        $slipresponse = Http::get('https://morristown.scrapitsoftware.com:4443/sr/get_slip_array?username=' . $code);
         $newconvertor = $slipresponse->body();
         $newslipResponse = json_decode($newconvertor, true);
         $slipresponse = explode('{"error":"Valid Login"}', $slipresponse->body())[0];
         $slipresponse = json_decode($slipresponse);
+        dd($slipresponse);
         $slipresponse = $slipresponse->sliprow;
 
         // Update User Location API Call 
