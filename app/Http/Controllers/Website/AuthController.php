@@ -170,6 +170,7 @@ class AuthController extends Controller
         $newslipResponse = json_decode($newconvertor, true);
         $slipresponse = explode('{"error":"Valid Login"}', $slipresponse->body())[0];
         $slipresponse = json_decode($slipresponse);
+        dd($slipresponse);
         $slipresponse = $slipresponse->sliprow;
 
         // Update User Location API Call 
