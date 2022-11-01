@@ -103,6 +103,12 @@
         font-weight: 600;
         border-radius: 15px;
     }
+
+    .token_s {
+        font-weight: 400;
+        color: #1d3e75;
+        z-index: -47;
+    }
 </style>
 <!-- Navbar section - START -->
 <div class="container-fluid">
