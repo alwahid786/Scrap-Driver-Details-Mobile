@@ -81,7 +81,7 @@ class AuthController extends Controller
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
         $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $code . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
-        notify()->success();
+        notify()->success('Action performed successfully!');
         return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code]);
     }
 
@@ -104,7 +104,8 @@ class AuthController extends Controller
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
         $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $code . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
-        notify()->success('Slip Completed Successfully!');
+        notify()->success('Action performed successfully!');
+
         return view('dashboard', ['data' => $slipresponse]);
     }
 
@@ -113,7 +114,8 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/change_notes?slipnum=' . $request->slipnum . '&notes=' . $request->notes);
         $data = $response->body();
         $dataresponse = json_decode($data);
-        notify()->success('Notes updated Successfully!');
+        notify()->success('Action performed successfully!');
+
         $code = Session::get('driverCode');
 
         // Update User Location API Call 
@@ -130,7 +132,8 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/add_container_out?slipnum=' . $request->slipnum . '&new_container=' . $request->new_container . '&longitude=' . $request->longitude . '&latitude=' . $request->latitude . '&driver_code=' . $request->driver_code);
         $data = $response->body();
         $dataresponse = json_decode($data);
-        notify()->success('Bin Removed Successfully!');
+        notify()->success('Action performed successfully!');
+
         $code = Session::get('driverCode');
 
         // Update User Location API Call 
@@ -146,7 +149,8 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/add_container_in?slipnum=' . $request->slipnum . '&new_container=' . $request->new_container . '&longitude=' . $request->longitude . '&latitude=' . $request->latitude . '&driver_code=' . $request->driver_code . '&yardcode=' . $request->yardcode);
         $data = $response->body();
         $dataresponse = json_decode($data);
-        notify()->success('Bin Placed Successfully!');
+        notify()->success('Action performed successfully!');
+
         $code = Session::get('driverCode');
 
         // Update User Location API Call 
