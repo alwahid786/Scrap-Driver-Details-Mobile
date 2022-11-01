@@ -134,7 +134,7 @@
         </div>
         <div class="col-sm-3 col-12 text-sm-right">
             <h4 class="token_s">
-                {{$data->slip_number}}
+                #{{$data->slip_number}}
             </h4>
         </div>
     </div>

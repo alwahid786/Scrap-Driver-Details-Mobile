@@ -72,6 +72,7 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/start_slip?slipnum=' . $request->slipnum);
         $data = $response->body();
         $dataresponse = json_decode($data);
+        dd($dataresponse);
         $name = Session::get('driverName');
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
