@@ -177,7 +177,7 @@
                 <!-- <button class="startBtn_s mt-4" data-toggle="modal" data-target="#exampleModal" disabled>
                     SCAN BARCODE
                 </button> -->
-                <div class="mx-auto binBtnsDiv_s d-flex justify-content-around mt-4">
+                <div class="mx-auto binBtnsDiv_s w-100 d-flex justify-content-around mt-4">
                     <button class="binBtns_s mr-1" data-toggle="modal" data-target="#binRemoveModal">
                         Bin Removed
                     </button>
