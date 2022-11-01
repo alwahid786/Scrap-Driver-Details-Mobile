@@ -130,7 +130,6 @@
 </div>
 <!-- Navbar section - END -->
 <div class="container-md container-fluid">
-    <x:notify-messages />
 
     <div class="row pt-4">
         <div class="col-sm-9 col-12">
@@ -146,6 +145,8 @@
             </h4>
         </div>
     </div>
+    <x:notify-messages />
+
     <div class="row py-3">
         <div class="mx-auto sizeDiv_s mt-3">
             <div class="d-flex divBorder_s">
