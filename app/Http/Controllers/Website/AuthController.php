@@ -106,7 +106,7 @@ class AuthController extends Controller
         $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $code . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
         notify()->success('Action performed successfully!');
 
-        return view('dashboard', ['data' => $slipresponse]);
+        return redirect('dashboard', ['data' => $slipresponse]);
     }
 
     public function saveNotes(Request $request)
