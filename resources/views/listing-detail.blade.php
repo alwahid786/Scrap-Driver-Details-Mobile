@@ -177,22 +177,24 @@
                 <!-- <button class="startBtn_s mt-4" data-toggle="modal" data-target="#exampleModal" disabled>
                     SCAN BARCODE
                 </button> -->
-                <button class="binBtns_s mr-1" data-toggle="modal" data-target="#binRemoveModal">
-                    Bin Removed
-                </button>
-                <button class="binBtns_s ml-1" data-toggle="modal" data-target="#binPlaceModal">
-                    Bin Placed
-                </button>
+                <div class="mx-auto binBtnsDiv_s d-flex justify-content-around mt-4">
+                    <button class="binBtns_s mr-1" data-toggle="modal" data-target="#binRemoveModal">
+                        Bin Removed
+                    </button>
+                    <button class="binBtns_s ml-1" data-toggle="modal" data-target="#binPlaceModal">
+                        Bin Placed
+                    </button>
+                </div>
             </div>
         </div>
-        <!-- <div class="mx-auto binBtnsDiv_s d-flex justify-content-around mt-4">
+        <div class="mx-auto binBtnsDiv_s d-flex justify-content-around mt-4">
             <button class="binBtns_s mr-1" data-toggle="modal" data-target="#binRemoveModal">
                 Bin Removed
             </button>
             <button class="binBtns_s ml-1" data-toggle="modal" data-target="#binPlaceModal">
                 Bin Placed
             </button>
-        </div> -->
+        </div>
     </div>
     <div class="row pb-5">
         <div class="sizeDiv2_s mx-auto mt-5 ">
