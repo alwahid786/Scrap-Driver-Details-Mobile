@@ -81,7 +81,6 @@ class AuthController extends Controller
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
         $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $code . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
-        dd($locationApi);
         notify()->success('Slip Started Successfully!');
         return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code]);
     }
