@@ -124,6 +124,8 @@
 </div>
 <!-- Navbar section - END -->
 <div class="container-md container-fluid">
+    <x:notify-messages />
+
     <div class="row pt-4">
         <div class="col-sm-9 col-12">
             <h3 class="companyname_s">
