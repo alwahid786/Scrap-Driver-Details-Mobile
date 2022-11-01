@@ -14,6 +14,10 @@ use App\Http\Controllers\Website\AuthController;
 |
 */
 
+Route::get('/', function () {
+    return view('login');
+});
+
 Route::get('/login_auth', [AuthController::class, 'loginAPI'])->name('loginAPI');
 Route::get('/slip/detail', [AuthController::class, 'listDetail'])->name('listDetail');
 Route::get('/slip/start', [AuthController::class, 'startSlip'])->name('startSlip');
@@ -21,13 +25,11 @@ Route::get('/slip/complete', [AuthController::class, 'completeSlip'])->name('com
 Route::get('/notes/change', [AuthController::class, 'saveNotes'])->name('saveNotes');
 Route::get('/bin/remove', [AuthController::class, 'binRemove'])->name('binRemove');
 Route::get('/bin/place', [AuthController::class, 'binPlace'])->name('binPlace');
+Route::get('/slips', [AuthController::class, 'slips'])->name('slips');
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-Route::get('/listing/detail', function () {
-    return view('listing-detail');
-});
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
+// Route::get('/listing/detail', function () {
+//     return view('listing-detail');
+// });

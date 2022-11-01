@@ -120,9 +120,11 @@
                 </div>
                 <!-- Go Back Button -->
                 <div class="goBackDiv_s d-sm-block d-none">
-                    <button class="goBackBtn_s">Go Back
-                        <i class="fa-solid fa-angles-left ml-2" style="color: #1D3E75; font-weight: 600;"></i>
-                    </button>
+                    <a style="text-decoration: none; color: white;" href="{{route('slips')}}">
+                        <button class="goBackBtn_s">Go Back
+                            <i class="fa-solid fa-angles-left ml-2" style="color: #1D3E75; font-weight: 600;"></i>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
