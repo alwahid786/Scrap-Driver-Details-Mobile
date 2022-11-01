@@ -174,9 +174,9 @@
             </button>
             <div class="mt-5">
                 <input type="text" class="inputContNum_s inputContNum_d text-center" placeholder="Container Number">
-                <button class="startBtn_s mt-4" data-toggle="modal" data-target="#exampleModal" disabled>
+                <!-- <button class="startBtn_s mt-4" data-toggle="modal" data-target="#exampleModal" disabled>
                     SCAN BARCODE
-                </button>
+                </button> -->
             </div>
         </div>
         <div class="mx-auto binBtnsDiv_s d-flex justify-content-around mt-4">
