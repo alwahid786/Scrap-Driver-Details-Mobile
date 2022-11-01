@@ -367,11 +367,7 @@
         </div>
     </div>
 </div>
-<script>
-    var notify = {
-        timeout: "500000",
-    }
-</script>
+
 <script>
     @if(Session::has('message'))
     toastr.options = {
