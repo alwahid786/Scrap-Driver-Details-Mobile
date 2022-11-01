@@ -64,7 +64,6 @@ class AuthController extends Controller
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
         $locationApi = Http::get('https://morristown.scrapitsoftware.com:4443/sr/update_location?driver_code=' . $code . '&longitude=' . $currentUserInfo->longitude . '&latitude=' . $currentUserInfo->latitude);
-        toastr()->success('Data has been saved successfully!');
         return view('listing-detail', ['data' => $dataresponse, 'name' => $name, 'location' => $currentUserInfo, 'code' => $code]);
     }
 
