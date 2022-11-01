@@ -132,6 +132,7 @@ class AuthController extends Controller
         $response = Http::get('https://morristown.scrapitsoftware.com:4443/sr/add_container_out?slipnum=' . $request->slipnum . '&new_container=' . $request->new_container . '&longitude=' . $request->longitude . '&latitude=' . $request->latitude . '&driver_code=' . $request->driver_code);
         $data = $response->body();
         $dataresponse = json_decode($data);
+        dd($dataresponse);
         notify()->success('Action performed successfully!');
 
         $code = Session::get('driverCode');
